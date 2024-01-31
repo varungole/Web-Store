@@ -1,19 +1,19 @@
 package com.varun.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity //A table in relational database
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "products")
 public class Product {
     
     @Id //primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // create unique identity
-    private Long id;
+    private String id;
 
     private String name;
     private double price;
+
     public String getName() {
         return name;
     }
@@ -26,5 +26,5 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    
-}
+
+}   
